@@ -361,7 +361,7 @@ body {
     
     .panelarea.layoutvertical > .flowwidget {
         width: calc(50% - 5px);
-        min-width: 180px;
+        min-width: 0;
     }
     
     .flowwidgetbody {
@@ -396,6 +396,19 @@ body {
         font-size: 14px;
         height: 40px;
         padding: 8px 10px;
+    }
+}
+
+/* Extra-narrow phones (e.g. Wix mobile 320px): stack sections to avoid horizontal scrolling */
+@media (max-width: 420px) {
+    .panelarea.layoutvertical {
+        flex-direction: column;
+        overflow-x: hidden;
+        align-items: stretch;
+    }
+
+    .panelarea.layoutvertical > .flowwidget {
+        width: 100%;
     }
 }
 

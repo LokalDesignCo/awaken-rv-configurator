@@ -28,7 +28,8 @@
   
   .awaken-configurator-container iframe {
     width: 100%;
-    height: 800px;
+    height: min(80dvh, 900px);
+    min-height: 520px;
     border: none;
     display: block;
   }
@@ -36,14 +37,16 @@
   /* Tablet */
   @media (max-width: 1200px) {
     .awaken-configurator-container iframe {
-      height: 700px;
+      height: min(70dvh, 760px);
+      min-height: 520px;
     }
   }
   
   /* Mobile */
   @media (max-width: 768px) {
     .awaken-configurator-container iframe {
-      height: 600px;
+      height: min(72dvh, 680px);
+      min-height: 560px;
     }
   }
 </style>
