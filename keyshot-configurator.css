@@ -410,6 +410,54 @@ body {
     .panelarea.layoutvertical > .flowwidget {
         width: 100%;
     }
+
+    /* Make everything more compact and avoid truncation on 320px */
+    .panelarea {
+        padding: 6px;
+    }
+
+    .panelarea.layoutvertical {
+        padding: 6px;
+        gap: 6px;
+    }
+
+    .flowheadertextbox {
+        height: 34px;
+        padding: 6px 8px;
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .flowheadertext {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        font-size: 13px;
+        line-height: 1.1;
+    }
+
+    .flowwidgetbody {
+        padding: 6px;
+    }
+
+    .flowwidgetbody .flowthumbnailitem {
+        padding: 3px;
+    }
+
+    .flowthumbnailitem > div {
+        min-height: 38px;
+        padding: 6px 6px;
+    }
+
+    .flowthumbnailitem > div > span {
+        font-size: 12px;
+        padding: 2px 4px 0;
+        margin-top: 0;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        line-height: 1.1;
+    }
 }
 
 .panelarea > .flowwidget:first-child {
