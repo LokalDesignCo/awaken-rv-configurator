@@ -1,0 +1,929 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500&display=swap');
+
+@font-face {
+    font-family: "ks-configurator-icons";
+    src: url("fonts/ks-configurator-icons.woff") format("woff"),
+         url("fonts/ks-configurator-icons.ttf") format("truetype"),
+         url("fonts/ks-configurator-icons.svg#ks-configurator-icons") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ksfont-arrow-left::before { content: "\e001"; }
+.ksfont-arrow-right::before { content: "\e002"; }
+.ksfont-arrow-up::before { content: "\e00f"; }
+.ksfont-arrow-down::before { content: "\e000"; }
+.ksfont-angle-dbl-left::before { content: "\e0fa"; }
+.ksfont-angle-dbl-right::before { content: "\e0f9"; }
+.ksfont-reset::before { content: "\e008"; }
+.ksfont-save-configuration::before { content: "\e0ff"; }
+.ksfont-zoom-in::before { content: "\e0fe"; }
+.ksfont-zoom-out::before { content: "\e0fd"; }
+.ksfont-zoom-to-fit::before { content: "\e0fb"; }
+.ksfont-zoom-to-100::before { content: "\e0fc"; }
+
+:root {
+    /* ========================================
+       AWAKEN RV DESIGN SYSTEM
+       ======================================== */
+    
+    /* === NEUTRAL COLORS === */
+    --Neutral-Neutral-Lightest: #FAFBFB;
+    --Neutral-Neutral-Lighter: #F1F2F3;
+    --Neutral-Neutral-Light: #D0D4D7;
+    --Neutral-Neutral: #A7ADB2;
+    --Neutral-Neutral-Dark: #6F7376;
+    --Neutral-Neutral-Darker: #454749;
+    --Neutral-Neutral-Darkest: #231F20;
+    
+    /* === BLUE 1 COLORS === */
+    --Blue-1-Blue-1-Lightest: #E6F0F9;
+    --Blue-1-Blue-1-Lighter: #CCE0F3;
+    --Blue-1-Blue-1-Light: #B1CDE7;
+    --Blue-1-Blue-1: #5C98CC;
+    --Blue-1-Blue-1-Dark: #4778A3;
+    --Blue-1-Blue-1-Darker: #385F82;
+    --Blue-1-Blue-1-Darkest: #2B4A66;
+    
+    /* === BLUE 2 COLORS === */
+    --Blue-2-Blue-2-Lightest: #E4EBF4;
+    --Blue-2-Blue-2-Lighter: #C9D8E9;
+    --Blue-2-Blue-2-Light: #ADC4DE;
+    --Blue-2-Blue-2: #4877B2;
+    --Blue-2-Blue-2-Dark: #385E8F;
+    --Blue-2-Blue-2-Darker: #1F3246;
+    --Blue-2-Blue-2-Darkest: #1F3246;
+    
+    /* === GOLD COLORS === */
+    --Gold-Gold-Lightest: #F8F5EA;
+    --Gold-Gold-Lighter: #F1EBD5;
+    --Gold-Gold-Light: #E9E0BF;
+    --Gold-Gold: #8C6E01;
+    --Gold-Gold-Dark: #6F570A;
+    --Gold-Gold-Darker: #584612;
+    --Gold-Gold-Darkest: #453718;
+    
+    /* === TABLE COLORS === */
+    --Table-Green: #008A5B;
+    --Table-Color: #BF5747;
+    
+    /* === TYPOGRAPHY === */
+    --font-family-primary: 'Prompt', sans-serif;
+    --font-family-icons: "ks-configurator-icons";
+    
+    /* Font Sizes */
+    --font-size-xs: 16px;
+    --font-size-sm: 18px;
+    --font-size-base: 20px;
+    --font-size-lg: 24px;
+    --font-size-xl: 32px;
+    --font-size-2xl: 42px;
+    --font-size-3xl: 58px;
+    --font-size-4xl: 60px;
+    --font-size-5xl: 80px;
+    
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    
+    /* Line Heights */
+    --line-height-tight: 29px;
+    --line-height-base: 32px;
+    --line-height-relaxed: 36px;
+    --line-height-loose: 44px;
+    --line-height-xl: 58px;
+    --line-height-2xl: 70px;
+    --line-height-3xl: 75px;
+    --line-height-4xl: 92px;
+    
+    /* === SPACING === */
+    --spacing-xs: 10px;
+    --spacing-sm: 15px;
+    --spacing-md: 35px;
+    --spacing-lg: 50px;
+    --spacing-xl: 70px;
+    --spacing-2xl: 100px;
+    --spacing-3xl: 150px;
+    
+    /* === BORDER RADIUS === */
+    --radius-sm: 10px;
+    --radius-md: 12px;
+    
+    /* === CONFIGURATOR SPECIFIC COLORS === */
+    --color-panel-background: var(--Blue-2-Blue-2-Darker);
+    --color-panel-border: var(--Neutral-Neutral);
+    --color-title-text: var(--Neutral-Neutral-Lightest);
+    --color-title-background: rgba(31, 50, 70, 0.8);
+    --color-title-text-selected: var(--Neutral-Neutral-Lightest);
+    --color-title-background-selected: var(--Blue-2-Blue-2-Dark);
+    --color-title-text-hover: var(--Neutral-Neutral-Lightest);
+    --color-title-background-hover: var(--Gold-Gold);
+    --color-thumbnail-text: var(--Neutral-Neutral-Darker);
+    --color-thumbnail-background: var(--Neutral-Neutral-Lightest);
+    --color-thumbnail-border: var(--Neutral-Neutral-Light);
+    --color-thumbnail-text-selected: var(--Neutral-Neutral-Darkest);
+    --color-thumbnail-background-selected: var(--Gold-Gold-Lighter);
+    --color-thumbnail-border-selected: var(--Gold-Gold);
+    --color-thumbnail-text-hover: var(--Neutral-Neutral-Darkest);
+    --color-thumbnail-background-hover: var(--Neutral-Neutral-Lighter);
+    --color-thumbnail-border-hover: var(--Blue-1-Blue-1);
+    --color-window-background: var(--Neutral-Neutral-Lightest);
+    --color-side-panel-background: var(--Blue-2-Blue-2-Darker);
+    
+    /* === FONT SIZES (LEGACY) === */
+    --size-titles-font: 11;
+    --size-thumbnail-font: 9;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    margin: 0;
+    background: var(--color-window-background);
+    position: relative;
+    font-weight: var(--font-weight-normal);
+    color: var(--Neutral-Neutral-Darkest);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+#main {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --image-top: 0;
+    --image-left: 0;
+    --image-zoom-factor: 1;
+    background: var(--Neutral-Neutral-Lighter);
+    padding-right: 370px;
+}
+
+@media (max-width: 1400px) {
+    #main {
+        padding-right: 350px;
+    }
+}
+
+@media (max-width: 1200px) {
+    #main {
+        padding-right: 0;
+        padding-bottom: 190px;
+    }
+}
+
+@media (max-width: 768px) {
+    #main {
+        padding-bottom: 175px;
+    }
+}
+
+.mainimg {
+    flex: 0 0 auto;
+    position: relative;
+    top: calc(var(--image-top) * 1px);
+    left: calc(var(--image-left) * 1px);
+    transform: scale(var(--image-zoom-factor));
+    border: 1px solid var(--Neutral-Neutral-Light);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.movablecursor {
+    cursor: move;
+}
+
+.toolbar {
+    position: fixed;
+    top: 20px;
+    right: 420px;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: var(--Neutral-Neutral-Lightest);
+    border-radius: var(--radius-sm);
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    gap: 4px;
+    z-index: 100;
+}
+
+@media (max-width: 1400px) {
+    .toolbar {
+        right: 370px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .toolbar {
+        right: 20px;
+        top: 20px;
+        bottom: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .toolbar {
+        top: 10px;
+        right: 10px;
+        padding: 6px;
+    }
+}
+
+.toolbarbutton {
+    font-family: var(--font-family-icons);
+    font-size: 18pt;
+    user-select: none;
+    -webkit-user-select: none;
+    padding: 8px 12px;
+    color: var(--Neutral-Neutral-Dark);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.toolbarbutton:hover {
+    color: var(--Gold-Gold);
+    background: var(--Gold-Gold-Lightest);
+}
+.toolbarbutton.selected {
+    color: var(--Gold-Gold);
+    background: var(--Gold-Gold-Lighter);
+}
+
+.panelarea {
+    position: fixed;
+    display: flex;
+    background: transparent;
+    --flowwidget-first-size: 35;
+    /* This is set to "100 - flowwidget-first-size". It looks like Firefox doesn't like calc() in flex: values (observed in version 56) */
+    --flowwidget-second-size: 65;
+    padding: 14px;
+    z-index: 10;
+}
+
+.panelarea.layouthorizontal {
+    left: 0;
+    bottom: 0;
+    height: auto;
+    max-height: 280px;
+    width: 100%;
+    flex-direction: row;
+}
+
+.panelarea.layoutvertical {
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 350px;
+    flex-direction: column;
+    padding: 12px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1400px) {
+    .panelarea.layoutvertical {
+        width: 330px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .panelarea.layoutvertical {
+        width: 100%;
+        height: auto;
+        bottom: 0;
+        top: auto;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: visible;
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .panelarea.layoutvertical > .flowwidget {
+        flex: 0 0 auto;
+        width: calc(50% - 6px);
+        min-width: 200px;
+        margin: 0;
+    }
+    
+    .panelarea.layoutvertical > .flowwidget:last-child {
+        margin: 0;
+    }
+    
+    /* Both sections use 2x2 grid on tablet/mobile */
+    .flowwidgetbody .flowthumbnailitem {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 4px;
+    }
+    
+    .flowthumbnailitem > div {
+        padding: 8px 6px;
+        min-height: 46px;
+    }
+    
+    /* Hide thumbnail images on tablet/mobile */
+    .flowthumbnailitem img,
+    .flowthumbnailitem svg {
+        display: none;
+    }
+    
+    .flowthumbnailitem > div {
+        justify-content: center;
+    }
+    
+    .flowheadertextbox {
+        font-size: 16px;
+        height: 40px;
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .panelarea {
+        padding: 8px;
+    }
+    
+    .panelarea.layoutvertical {
+        padding: 8px;
+        gap: 8px;
+    }
+    
+    .panelarea.layoutvertical > .flowwidget {
+        width: calc(50% - 5px);
+        min-width: 180px;
+    }
+    
+    .flowwidgetbody {
+        padding: 8px;
+        min-height: auto;
+    }
+    
+    /* 2x2 grid on mobile */
+    .flowwidgetbody .flowthumbnailitem {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 4px;
+    }
+    
+    .flowthumbnailitem > div {
+        padding: 8px 6px;
+        min-height: 44px;
+        font-size: 13px;
+    }
+    
+    /* Hide thumbnail images on mobile */
+    .flowthumbnailitem img,
+    .flowthumbnailitem svg {
+        display: none;
+    }
+    
+    .flowthumbnailitem > div {
+        justify-content: center;
+    }
+    
+    .flowheadertextbox {
+        font-size: 14px;
+        height: 40px;
+        padding: 8px 10px;
+    }
+}
+
+.panelarea > .flowwidget:first-child {
+    flex: var(--flowwidget-first-size) var(--flowwidget-first-size) 0;
+}
+.panelarea > .flowwidget:not(:first-child) {
+    flex: var(--flowwidget-second-size) var(--flowwidget-second-size) 0;
+}
+
+.flowwidgetbody {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow: auto;
+    border: none;
+    background: #E8EAED;
+    color: var(--Neutral-Neutral-Darkest);
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: calc(var(--size-thumbnail-font) * 1pt);
+    --thumbnail-size-percentage: 50%;
+    --current-thumbnail-width: 128px;
+    --current-thumbnail-height: 128px;
+    border-radius: var(--radius-sm);
+}
+
+@media (max-width: 768px) {
+    .flowwidgetbody {
+        padding: 12px;
+    }
+}
+
+.flexaligncontentworkaround .flowselectionbody::before {
+    content: "";
+    flex: 0 0 100%;
+    width: 0;
+}
+
+.flowselectionbody > * {
+    flex: 0 0 var(--thumbnail-size-percentage);
+    min-height: 0;
+}
+.flowaccordiongroup.selected > .flowaccordiongroupbody > * {
+    width: var(--thumbnail-size-percentage);
+    flex: 0 0 auto;
+    min-height: 0;
+}
+
+.flowthumbnailitem {
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+/* Two items per row for color selections */
+.flowselectionbody[data-selection-type="colors"] .flowthumbnailitem,
+.flowselectionbody.colors-selection .flowthumbnailitem {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+@media (max-width: 768px) {
+    .flowthumbnailitem {
+        padding: 4px;
+    }
+}
+
+.flowthumbnailitem > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-width: 1px;
+    border-radius: var(--radius-sm);
+    border-style: solid;
+    background: var(--Neutral-Neutral-Lightest);
+    border-color: var(--Neutral-Neutral-Light);
+    color: var(--Neutral-Neutral-Darkest);
+    box-sizing: border-box;
+    min-width: 0;
+    font-weight: var(--font-weight-normal);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    padding: 10px 8px;
+}
+
+@media (max-width: 768px) {
+    .flowthumbnailitem > div {
+        padding: 8px 6px;
+        border-width: 2px;
+    }
+}
+.flowselectionbody.listlayout .flowthumbnailitem > div {
+    flex-direction: row;
+}
+.flowthumbnailitem > div > * {
+    min-height: 0;
+}
+.flowselectionbody > .flowthumbnailitem > div > :first-child {
+    flex: 1 1 0;
+    width: var(--current-thumbnail-width);
+}
+.flowselectionbody > .flowthumbnailitem > div > img {
+    object-fit: contain;
+}
+.flowselectionbody.listlayout > .flowthumbnailitem > div > :first-child {
+    flex: 0 0 auto;
+    height: 100%;
+    width: auto;
+}
+.flowselectionbody.listlayout > .flowthumbnailitem > div > svg {
+    max-width: none;
+    max-height: 50px;
+}
+.flowselectionbody > .flowthumbnailitem > div > span {
+    max-width: var(--current-thumbnail-width);
+}
+.flowselectionbody.listlayout > .flowthumbnailitem > div > span {
+    width: 12em;
+    max-width: none;
+    padding-left: 5px;
+}
+.flowaccordiongroupbody > .flowthumbnailitem > div > :first-child {
+    width: 100%;
+}
+.flowaccordiongroupbody > .flowthumbnailitem > div > img {
+    flex: 0 0 auto;
+}
+.flowaccordiongroupbody > .flowthumbnailitem > div > span {
+    max-width: 100%;
+}
+.flowthumbnailitem > div > span {
+    flex: 0 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 4px 6px 0;
+    font-size: 15px;
+    margin-top: 2px;
+    text-align: center;
+    width: 100%;
+    font-weight: var(--font-weight-normal);
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+@media (max-width: 768px) {
+    .flowthumbnailitem > div > span {
+        font-size: 14px;
+        padding: 4px 6px 0;
+    }
+}
+.flowthumbnailitem > div > svg {
+    max-width: 50px;
+}
+.flowaccordiongroupbody > .flowthumbnailitem > div > svg {
+    height: var(--current-thumbnail-height);
+}
+.flowthumbnailitem > div > svg path {
+    fill: var(--color-thumbnail-text);
+}
+
+.hidethumbnailtext .flowthumbnailitem > div > span {
+    display: none;
+}
+
+.flowthumbnailitem > div:hover {
+    background: var(--Neutral-Neutral-Lightest);
+    border-color: var(--Neutral-Neutral-Dark);
+    color: var(--Neutral-Neutral-Darkest);
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.flowthumbnailitem > div.selected, .flowthumbnailitem > div.selected:hover {
+    background: var(--Neutral-Neutral-Lightest);
+    border-color: var(--Gold-Gold);
+    color: var(--Neutral-Neutral-Darkest);
+    border-width: 1px;
+    transform: translateY(0);
+    box-shadow: 0 0 0 1px var(--Gold-Gold);
+    font-weight: var(--font-weight-medium);
+}
+
+@media (max-width: 768px) {
+    .flowthumbnailitem > div.selected, 
+    .flowthumbnailitem > div.selected:hover {
+        border-width: 1px;
+    }
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.nodisplay {
+    display: none;
+}
+
+.flowselectionheaderbox {
+    position: absolute;
+    bottom: 100%;
+    font-size: calc(var(--size-titles-font) * 1pt);
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    .flowselectionheaderbox {
+        margin-bottom: 6px;
+    }
+}
+
+.flowselectionheaderbox > div {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.flowheadertextbox {
+    display: flex;
+    flex-direction: row;
+    height: 44px;
+    align-items: center;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    color: var(--Neutral-Neutral-Darkest);
+    background-color: #E8EAED;
+    --headertext-title: "Title";
+    --headertext-value: "Current Value";
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: var(--font-weight-normal);
+    font-size: 16px;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+@media (max-width: 768px) {
+    .flowheadertextbox {
+        height: 44px;
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
+.flowselectionheaderscrollbox {
+    background: #E8EAED;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.flowselectionheaderscrollbox > div {
+    padding: 12px 16px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.flowheadertextbox.selected, .flowaccordiongroup.selected > .flowheadertextbox, .flowselectionheaderscrollbox > div {
+    color: var(--Neutral-Neutral-Darkest);
+    background: #E8EAED;
+}
+
+@media (max-width: 768px) {
+    .flowselectionheaderscrollbox > div {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
+
+.flowheadertext {
+    flex: 1 1 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: var(--font-weight-normal);
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 0;
+    text-transform: none;
+}
+.flowheadertext::before {
+    content: var(--headertext-title);
+}
+.flowheadertext::after {
+    content: "";
+}
+
+.flowheadermarker {
+    flex: 0 0 auto;
+    font-family: "ks-configurator-icons";
+    padding-left: 0.3em;
+}
+
+.flowselectionheaderscroller {
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.flowselectionheaderscroller:hover {
+    color: var(--Gold-Gold);
+}
+.flowselectionheaderscroller > span {
+    font-family: var(--font-family-icons);
+    vertical-align: middle;
+    line-height: 1px;
+}
+
+.flowselection .flowselectionheadermenu.hidden + .flowheadertextbox .flowheadermarker.ksfont-arrow-up {
+    display: none;
+}
+.flowselection .flowselectionheadermenu:not(.hidden) + .flowheadertextbox .flowheadermarker.ksfont-arrow-left {
+    display: none;
+}
+.flowselection .flowselectionheadermenu:not(.multioptions) + .flowheadertextbox .flowheadermarker {
+    display: none;
+}
+
+.flowaccordiongroup > .flowaccordionheader {
+    flex: 0 0 auto;
+    font-size: calc(var(--size-titles-font) * 1pt);
+}
+.flowaccordiongroup > .flowaccordiongroupbody {
+    flex: 0 1 auto;
+}
+
+.flowaccordiongroup > .flowaccordiongroupbody {
+    display: none;
+}
+
+.flowaccordiongroup.selected > .flowaccordiongroupbody {
+    display: flex;
+}
+
+.flowaccordiongroup.selected .flowheadermarker.ksfont-arrow-left {
+    display: none;
+}
+.flowaccordiongroup:not(.selected) .flowheadermarker.ksfont-arrow-down {
+    display: none;
+}
+.flowaccordiongroup:only-child .flowaccordionheader .flowheadermarker {
+    display: none;
+}
+
+.flowwidgetdraghandle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: 8px;
+}
+
+.layouthorizontal .flowwidgetdraghandle {
+    flex-direction: column;
+    cursor: col-resize;
+}
+.layoutvertical .flowwidgetdraghandle {
+    flex-direction: row;
+    cursor: row-resize;
+}
+
+.flowwidgetdraghandledot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--Neutral-Neutral);
+    transition: background-color 0.2s ease;
+}
+.layouthorizontal .flowwidgetdraghandledot {
+    margin: 3px 2px;
+}
+.layoutvertical .flowwidgetdraghandledot {
+    margin: 2px 3px;
+}
+
+.flowwidgetdraghandle:hover > .flowwidgetdraghandledot {
+    background-color: var(--Gold-Gold);
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR STYLING
+   ======================================== */
+
+.flowwidgetbody::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.flowwidgetbody::-webkit-scrollbar-track {
+    background: #D1D5DB;
+    border-radius: 4px;
+}
+
+.flowwidgetbody::-webkit-scrollbar-thumb {
+    background: var(--Neutral-Neutral);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.flowwidgetbody::-webkit-scrollbar-thumb:hover {
+    background: var(--Neutral-Neutral-Dark);
+}
+
+/* Firefox scrollbar */
+.flowwidgetbody {
+    scrollbar-width: thin;
+    scrollbar-color: var(--Neutral-Neutral) #D1D5DB;
+}
+
+.panelarea.layoutvertical::-webkit-scrollbar {
+    width: 8px;
+}
+
+.panelarea.layoutvertical::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.panelarea.layoutvertical::-webkit-scrollbar-thumb {
+    background: var(--Neutral-Neutral);
+    border-radius: 4px;
+}
+
+.panelarea.layoutvertical::-webkit-scrollbar-thumb:hover {
+    background: var(--Neutral-Neutral-Dark);
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+/* Ensure proper flex layout for widgets */
+.flowwidget {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.flowselection {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Accordion specific styles */
+.flowaccordion {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.flowaccordiongroup {
+    flex: 0 0 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.flowaccordiongroup.selected {
+    flex: 0 0 auto;
+}
+
+/* Layout spacing */
+.panelarea > .flowwidget {
+    margin-bottom: 16px;
+}
+
+.panelarea > .flowwidget:last-child {
+    margin-bottom: 0;
+}
+
+.panelarea.layoutvertical > .flowwidget + .flowwidgetdraghandle {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .panelarea.layoutvertical {
+        flex-direction: row;
+    }
+    
+    .panelarea.layoutvertical > .flowwidget {
+        margin-right: 12px;
+        margin-bottom: 0;
+    }
+    
+    .panelarea.layoutvertical > .flowwidget:last-child {
+        margin-right: 0;
+    }
+}
+
+/* Ensure images scale properly */
+.flowthumbnailitem img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Two-column layout for specific selections */
+.flowwidgetbody.two-column .flowthumbnailitem,
+.flowselectionbody.grid-2col .flowthumbnailitem {
+    flex: 0 0 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+}
+
+/* For exterior colors specifically - force two columns */
+.flowselectionbody {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.flowselectionbody .flowthumbnailitem {
+    flex: 0 0 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+}
+
+/* For views, use 2x2 grid */
+.flowselectionbody.views-grid .flowthumbnailitem {
+    flex: 0 0 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+}
+
+@media (max-width: 768px) {
+    .flowwidgetbody.two-column .flowthumbnailitem,
+    .flowselectionbody.grid-2col .flowthumbnailitem,
+    .flowselectionbody .flowthumbnailitem {
+        flex: 0 0 calc(50% - 8px);
+        max-width: calc(50% - 8px);
+    }
+}
+
